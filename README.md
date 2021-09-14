@@ -47,10 +47,10 @@ Suivre les liens ci-dessous pour consulter les slides en ligne.
 | Cours n°04 : Modèle de régression linéaire (suite) | Mardi 5 octobre 14h-16 | <[slides]()> | <[url]()> |
 | Cours n°05 : Markov Chain Monte Carlo | Mercredi 6 octobre 10h-12h | <[slides]()> | <[url]()> |
 | Cours n°06 : Modèle linéaire généralisé | Mercredi 6 octobre 14h-16h | <[slides]()> | <[url]()> |
-| Cours n°07 : Comparaison de modèles | Jeudi 7 octobre | <[slides]()> | <[url]()> |
-| Cours n°08 : Modèles multi-niveaux | Jeudi 7 octobre | <[slides]()> | <[url]()> |
-| Cours n°09 : Modèles multi-niveaux généralisés | Vendredi 8 octobre | <[slides]()> | <[url]()> |
-| Cours n°10 : Data Hackaton | Vendredi 8 octobre | <[slides]()> | <[url]()> |
+| Cours n°07 : Comparaison de modèles | Jeudi 7 octobre 10h-12h | <[slides]()> | <[url]()> |
+| Cours n°08 : Modèles multi-niveaux | Jeudi 7 octobre 14h-16h | <[slides]()> | <[url]()> |
+| Cours n°09 : Modèles multi-niveaux généralisés | Vendredi 8 octobre 10h-12h | <[slides]()> | <[url]()> |
+| Cours n°10 : Data Hackaton | Vendredi 8 octobre 14h-16h | <[slides]()> | <[url]()> |
 
 ## Pour aller plus loin
 
