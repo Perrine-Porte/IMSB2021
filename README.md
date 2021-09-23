@@ -61,6 +61,7 @@ Suivre les liens ci-dessous pour consulter les slides en ligne. MDP Zoom : IMSB2
 - Kurz, S. (2020). *Statistical Rethinking with brms, ggplot2, and the tidyverse*. Available [online](https://bookdown.org/ajkurz/Statistical_Rethinking_recoded/).
 - Kruschke, J. K. (2015). *Doing Bayesian Data Analysis, Second Edition: A Tutorial with R, JAGS, and Stan*. Academic Press / Elsevier.
 - Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., Rubin, D. B. (2013). *Bayesian Data Analysis, third edition*. London: CRC Press.
+- Nicenboim, B., Schad, D., & Vasishth, S. (2021). An Introduction to Bayesian Data Analysis for Cognitive Science. Available [online](https://vasishth.github.io/bayescogsci/book/).
 
 ### Vidéos
 
