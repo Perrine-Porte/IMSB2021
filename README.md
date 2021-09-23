@@ -37,11 +37,11 @@ Télécharger le répertoire entier (en cliquant sur le bouton vert) puis double
 
 ### Option 2
 
-Suivre les liens ci-dessous pour consulter les slides en ligne.
+Suivre les liens ci-dessous pour consulter les slides en ligne. MDP Zoom : IMSB2021.
 
 | Cours | Calendrier | Matériel | Zoom |
 |-------|:----------:|:--------:|:----:|
-| Cours n°01 : Introduction à l'inférence bayésienne | Lundi 4 octobre 10h-12h | <[slides]()> | <[url]()> |
+| Cours n°01 : Introduction à l'inférence bayésienne | Lundi 4 octobre 10h-12h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours01)> | <[url]( https://univ-grenoble-alpes-fr.zoom.us/j/94925117839?pwd=S3BmVml6aDJ4UnVsbnNPaCtUamlIUT09)> |
 | Cours n°02 : Modèle Beta-Binomial | Lundi 4 octobre 14h-16h | <[slides]()> | <[url]()> |
 | Cours n°03 : Introduction à brms, modèle de régression linéaire | Mardi 5 octobre 10h-12h | <[slides]()> | <[url]()> |
 | Cours n°04 : Modèle de régression linéaire (suite) | Mardi 5 octobre 14h-16 | <[slides]()> | <[url]()> |
