@@ -50,7 +50,7 @@ Suivre les liens ci-dessous pour consulter les slides en ligne. MDP Zoom : IMSB2
 | Cours n°07 : Comparaison de modèles | Jeudi 7 octobre 10h-12h | <[slides]()> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/92781004931?pwd=cGVCOThVcldwb0Rwb3ZjOWwrd1JSUT09)> |
 | Cours n°08 : Modèles multi-niveaux | Jeudi 7 octobre 14h-16h | <[slides]()> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/95706953868?pwd=WEVBZWdET1VyeUhNOExGQ2RQby9YQT09)> |
 | Cours n°09 : Modèles multi-niveaux généralisés | Vendredi 8 octobre 10h-12h | <[slides]()> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/94357649191?pwd=Q1N6TVJuLzFGVk14a1NNTE0vcGM5UT09)> |
-| Cours n°10 : Data Hackaton | Vendredi 8 octobre 14h-16h | <[slides]()> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/93755445672?pwd=aUx4ZWdMMlR2UVdMRkNiN0JFZDNqUT09)> |
+| Cours n°10 : Data Hackathon | Vendredi 8 octobre 14h-16h | <[slides]()> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/93755445672?pwd=aUx4ZWdMMlR2UVdMRkNiN0JFZDNqUT09)> |
 
 ## Pour aller plus loin
 
