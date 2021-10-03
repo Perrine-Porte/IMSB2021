@@ -1,4 +1,4 @@
-## ----setup, include = FALSE---------------------------------------------------------------
+## ----setup, include = FALSE------------------------------------------------------------------------
 library(tidyverse)
 library(knitr)
 
@@ -9,20 +9,15 @@ knitr::opts_chunk$set(
   fig.align = "center", dev = "svg"
   )
 
-# extract R code for .Rpres
-# knitr::purl("Cours01/Cours01.Rpres", output = "Cours01/code_cours_01.R", documentation = 1)
+# setting up ggplot theme
+theme_set(theme_bw(base_size = 20, base_family = "Open Sans") )
 
 
-## ----echo = FALSE, out.width = "600px"----------------------------------------------------
+## ----echo = FALSE, out.width = "600px"-------------------------------------------------------------
 knitr::include_graphics("figures/thinking.gif")
 
 
-## ---- eval = FALSE, echo = FALSE----------------------------------------------------------
-## library(flair)
-## decorate("frequency") %>% flair_funs()
-
-
-## ----frequency, fig.width = 7.5, fig.height = 5-------------------------------------------
+## ----frequency, fig.width = 7.5, fig.height = 5----------------------------------------------------
 library(tidyverse)
 
 sample(c(0, 1), 500, replace = TRUE) %>%
@@ -33,43 +28,42 @@ sample(c(0, 1), 500, replace = TRUE) %>%
         geom_hline(yintercept = 0.5, lty = 3) +
         xlab("Nombre de lancers") +
         ylab("Proportion de faces") +
-        ylim(0, 1) +
-        theme_bw(base_size = 18)
+        ylim(0, 1)
 
 
-## ----eval = TRUE, echo = FALSE, fig.align = "center"--------------------------------------
+## ----eval = TRUE, echo = FALSE, fig.align = "center"-----------------------------------------------
 set.seed(666)
 as.integer(runif(5, 10, 100) )
 
 
-## ----eval = TRUE, echo = TRUE, fig.align = "center"---------------------------------------
+## ----eval = TRUE, echo = TRUE, fig.align = "center"------------------------------------------------
 RNGkind()[1] # default random number generator
 
 
-## ----eval = TRUE, echo = TRUE, fig.align = "center"---------------------------------------
+## ----eval = TRUE, echo = TRUE, fig.align = "center"------------------------------------------------
 set.seed(666)
 as.integer(runif(5, 10, 100) )
 
 
-## ----eval = TRUE, echo = FALSE, fig.align = "center"--------------------------------------
+## ----eval = TRUE, echo = FALSE, fig.align = "center"-----------------------------------------------
 set.seed(666)
 as.integer(runif(6, 10, 100) )
 
 
-## ----eval = TRUE, echo = FALSE, fig.align = "center"--------------------------------------
+## ----eval = TRUE, echo = FALSE, fig.align = "center"-----------------------------------------------
 set.seed(666)
 as.integer(runif(7, 10, 100) )
 
 
-## ----echo = FALSE, fig.align = "center", out.width = "600px"------------------------------
+## ----echo = FALSE, fig.align = "center", out.width = "600px"---------------------------------------
 knitr::include_graphics("figures/trump.gif")
 
 
-## ----echo = FALSE, fig.align = "center", out.width = "400px"------------------------------
+## ----echo = FALSE, fig.align = "center", out.width = "400px"---------------------------------------
 knitr::include_graphics("figures/good.gif")
 
 
-## ----message = FALSE, echo = FALSE, fig.align = "center", fig.width = 7.5, fig.height = 5----
+## ----message = FALSE, echo = FALSE, fig.align = "center", fig.width = 7.5, fig.height = 5----------
 set.seed(1111)
 
 x <- sort(runif(10, -2, 2) )
@@ -77,8 +71,7 @@ y <- 3 * x^3 + 5 * x^2 + 0.5 * x + 20 + rnorm(10, sd = 3) # a 3 polynomial model
 
 data.frame(x, y) %>%
         ggplot(aes(x = x, y = y) ) +
-        geom_point(size = 3) +
-        theme_bw(base_size = 20)
+        geom_point(size = 3)
 
 nterm <- c(1, 2, 3, 9)
 
@@ -86,15 +79,14 @@ PAL <- colorRampPalette(c("black", "chartreuse3", "gold", "dodgerblue") )
 COLS <- PAL(length(nterm) )
 
 
-## ----echo = FALSE, fig.align = "center", fig.width = 7.5, fig.height = 5------------------
+## ----echo = FALSE, fig.align = "center", fig.width = 7.5, fig.height = 5---------------------------
 data.frame(x, y) %>%
         ggplot(aes(x = x, y = y) ) +
         geom_point(size = 3) +
-        geom_smooth(method = "lm", se = FALSE, col = COLS[1]) +
-        theme_bw(base_size = 20)
+        geom_smooth(method = "lm", se = FALSE, col = COLS[1])
 
 
-## ----echo = FALSE, fig.align = "center", fig.width = 7.5, fig.height = 5------------------
+## ----echo = FALSE, fig.align = "center", fig.width = 7.5, fig.height = 5---------------------------
 data.frame(x, y) %>%
         ggplot(aes(x = x, y = y) ) +
         geom_point(size = 3) +
@@ -102,11 +94,11 @@ data.frame(x, y) %>%
         stat_smooth(
                 method = "lm", se = FALSE,
                 formula = y ~ poly(x, 2),
-                col = COLS[2]) +
-        theme_bw(base_size = 20)
+                col = COLS[2]
+                )
 
 
-## ----echo = FALSE, fig.align = "center", fig.width = 7.5, fig.height = 5------------------
+## ----echo = FALSE, fig.align = "center", fig.width = 7.5, fig.height = 5---------------------------
 data.frame(x, y) %>%
         ggplot(aes(x = x, y = y) ) +
         geom_point(size = 3) +
@@ -122,11 +114,11 @@ data.frame(x, y) %>%
         stat_smooth(
                 method = "lm", se = FALSE,
                 formula = y ~ poly(x, 9),
-                col = COLS[4]) +
-        theme_bw(base_size = 20)
+                col = COLS[4]
+                )
 
 
-## ---- echo = FALSE, eval = TRUE, fig.height = 10, fig.width = 10, fig.align = "center"----
+## ---- echo = FALSE, eval = TRUE, fig.height = 10, fig.width = 10, fig.align = "center"-------------
 library(rethinking)
 source("code/forking_data_McElreath.R")
 
@@ -142,7 +134,7 @@ garden(
     alpha.fade = 1)
 
 
-## ---- echo = FALSE, eval = TRUE, fig.height = 10, fig.width = 10, fig.align = "center"----
+## ---- echo = FALSE, eval = TRUE, fig.height = 10, fig.width = 10, fig.align = "center"-------------
 library(rethinking)
 source("code/forking_data_McElreath.R")
 
@@ -158,7 +150,7 @@ garden(
     alpha.fade = 1)
 
 
-## ---- echo = FALSE, eval = TRUE, fig.height = 10, fig.width = 10, fig.align = "center"----
+## ---- echo = FALSE, eval = TRUE, fig.height = 10, fig.width = 10, fig.align = "center"-------------
 library(rethinking)
 source("code/forking_data_McElreath.R")
 
@@ -174,7 +166,7 @@ garden(
     alpha.fade = 1)
 
 
-## ---- echo = FALSE, eval = TRUE, fig.height = 10, fig.width = 10, fig.align = "center"----
+## ---- echo = FALSE, eval = TRUE, fig.height = 10, fig.width = 10, fig.align = "center"-------------
 library(rethinking)
 source("code/forking_data_McElreath.R")
 
@@ -192,7 +184,7 @@ garden(
 
 
 
-## ---- echo = FALSE, eval = TRUE, fig.height = 7, fig.width = 7, fig.align = "center"------
+## ---- echo = FALSE, eval = TRUE, fig.height = 7, fig.width = 7, fig.align = "center"---------------
 source("code/forking_data_McElreath.R")
 
 dat <- c(1, 0, 1)
@@ -232,7 +224,7 @@ line.polar(c(0, 2), pi / 2 + (2 / 3) * pi, lwd = 1)
 line.polar(c(0, 2), pi / 2 + 2 * (2 / 3) * pi, lwd = 1)
 
 
-## ---- echo = TRUE, eval = TRUE------------------------------------------------------------
+## ---- echo = TRUE, eval = TRUE---------------------------------------------------------------------
 ways <- c(0, 3, 8, 9, 0)
 ways / sum(ways)
 
@@ -242,12 +234,12 @@ coin <- dbinom(x = 0:10, size = 10, prob = 0.5)
 barplot(coin, names.arg = 0:10, border = NA, axes = FALSE, cex.names = 1.5, col = "grey20")
 
 
-## ----eval = TRUE, echo = TRUE-------------------------------------------------------------
+## ----eval = TRUE, echo = TRUE----------------------------------------------------------------------
 # PMFs sum to 1
 dbinom(x = 0:10, size = 10, prob = 0.5) %>% sum
 
 
-## ----echo = FALSE, fig.align = "center", dev = "svg", fig.width = 6, fig.height = 5-------
+## ----echo = FALSE, fig.align = "center", dev = "svg", fig.width = 6, fig.height = 5----------------
 data.frame(x = c(0, 200) ) %>%
     ggplot(aes(x) ) +
     stat_function(
@@ -255,11 +247,10 @@ data.frame(x = c(0, 200) ) %>%
         args = list(mean = 100, sd = 15),
         lwd = 1.5
         ) +
-    theme_bw(base_size = 18) +
-    xlab("QI") + ylab("Densité de probabilité")
+    labs(x = "QI", y = "Densité de probabilité")
 
 
-## ----echo = TRUE--------------------------------------------------------------------------
+## ----echo = TRUE-----------------------------------------------------------------------------------
 # PDFs integrate to 1
 integrate(dnorm, -Inf, Inf, mean = 100, sd = 15)
 
@@ -281,8 +272,7 @@ data.frame(x = c(0, 200) ) %>%
         aes(cord.x, cord.y),
         color = "black"
         ) +
-    theme_bw(base_size = 20) +
-    xlab("QI") + ylab("Densité de probabilité")
+    labs(x = "QI", y = "Densité de probabilité")
 
 
 ## ----message = FALSE, echo = FALSE, fig.align = "center", dev = "svg", fig.width = 7, fig.height = 5----
@@ -297,15 +287,14 @@ data.frame(x = c(0, 200) ) %>%
         data = data.frame(cord.x, cord.y),
         aes(cord.x, cord.y)
         ) +
-    theme_bw(base_size = 20) +
-    xlab("QI") + ylab("Densité de probabilité")
+    labs(x = "QI", y = "Densité de probabilité")
 
 
-## ----eval = TRUE, echo = TRUE, fig.align = "center", fig.width = 8, fig.height = 6--------
+## ----eval = TRUE, echo = TRUE, fig.align = "center", fig.width = 8, fig.height = 6-----------------
 integrate(dnorm, 90, 96, mean = 100, sd = 15)
 
 
-## ---- message = FALSE, echo = TRUE--------------------------------------------------------
+## ---- message = FALSE, echo = TRUE-----------------------------------------------------------------
 library(tidyverse)
 
 data(HairEyeColor) # data adapted from Snee (1974)
@@ -315,57 +304,57 @@ cont <- round(cont / sum(cont), 2)
 cont
 
 
-## ---- echo = TRUE-------------------------------------------------------------------------
+## ---- echo = TRUE----------------------------------------------------------------------------------
 cont2 <- cont %>% as.data.frame %>% mutate(marginal_eye = rowSums(cont) )
 rownames(cont2) <- row.names(cont)
 cont2
 
 
-## ---- echo = TRUE, eval = TRUE------------------------------------------------------------
+## ---- echo = TRUE, eval = TRUE---------------------------------------------------------------------
 cont3 <- rbind(cont2, colSums(cont2) )
 rownames(cont3) <- c(row.names(cont2), "marginal_hair")
 cont3
 
 
-## ---- echo = FALSE, eval = TRUE-----------------------------------------------------------
+## ---- echo = FALSE, eval = TRUE--------------------------------------------------------------------
 cont3["Blue", ]
 
 
-## ---- echo = TRUE, eval = TRUE------------------------------------------------------------
+## ---- echo = TRUE, eval = TRUE---------------------------------------------------------------------
 cont3["Blue", "Blond"] / cont3["Blue", "marginal_eye"]  
 
 
-## ----bayes, echo = FALSE, fig.align = "center", out.width = "600px"-----------------------
+## ----bayes, echo = FALSE, fig.align = "center", out.width = "600px"--------------------------------
 knitr::include_graphics("figures/bayes.png")
 
 
-## ---- echo = TRUE-------------------------------------------------------------------------
+## ---- echo = TRUE----------------------------------------------------------------------------------
 prior <- c(0.008, 0.992)
 
 
-## ---- echo = TRUE-------------------------------------------------------------------------
+## ---- echo = TRUE----------------------------------------------------------------------------------
 like <- rbind(c(0.9, 0.1), c(0.07, 0.93) ) %>% data.frame
 colnames(like) <- c("Mam+", "Mam-")
 rownames(like) <- c("Cancer+", "Cancer-")
 like
 
 
-## ---- echo = TRUE-------------------------------------------------------------------------
+## ---- echo = TRUE----------------------------------------------------------------------------------
 (marginal <- sum(like$"Mam+" * prior) )
 
 
-## ---- echo = TRUE-------------------------------------------------------------------------
+## ---- echo = TRUE----------------------------------------------------------------------------------
 (posterior <- (like$"Mam+" * prior ) / marginal )
 
 
-## ----echo = FALSE, fig.align = "center", out.width = "600px"------------------------------
+## ----echo = FALSE, fig.align = "center", out.width = "600px"---------------------------------------
 knitr::include_graphics("figures/monty1.png")
 
 
-## ----echo = FALSE, fig.align = "center", out.width = "600px"------------------------------
+## ----echo = FALSE, fig.align = "center", out.width = "600px"---------------------------------------
 knitr::include_graphics("figures/monty2.png")
 
 
-## ----echo = FALSE, fig.align = "center", out.width = "600px"------------------------------
+## ----echo = FALSE, fig.align = "center", out.width = "600px"---------------------------------------
 knitr::include_graphics("figures/morale.gif")
 
