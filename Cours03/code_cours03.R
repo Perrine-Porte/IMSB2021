@@ -1,4 +1,4 @@
-## ----setup, include = FALSE-------------------------------------------------------------------
+## ----setup, include = FALSE------------------------------------------------------------
 library(tidyverse)
 library(knitr)
 
@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 theme_set(theme_bw(base_size = 20, base_family = "Open Sans") )
 
 
-## ----echo = TRUE------------------------------------------------------------------------------
+## ----echo = TRUE-----------------------------------------------------------------------
 library(rethinking)
 library(tidyverse)
 
@@ -21,24 +21,24 @@ d <- Howell1
 str(d)
 
 
-## ----echo = TRUE------------------------------------------------------------------------------
+## ----echo = TRUE-----------------------------------------------------------------------
 d2 <- d %>% filter(age >= 18)
 head(d2)
 
 
-## ----echo = TRUE, fig.width = 6, fig.height = 6-----------------------------------------------
+## ----echo = TRUE, fig.width = 6, fig.height = 6----------------------------------------
 d2 %>%
     ggplot(aes(x = height) ) +
     geom_histogram(bins = 10, col = "white")
 
 
-## ----eval = TRUE, echo = TRUE, fig.width = 6, fig.height = 6----------------------------------
+## ----eval = TRUE, echo = TRUE, fig.width = 6, fig.height = 6---------------------------
 data.frame(value = rnorm(1e4, 10, 1) ) %>% # 10.000 samples from Normal(10, 1)
     ggplot(aes(x = value) ) +
     geom_histogram(col = "white")
 
 
-## ----normal-explain1, echo = FALSE, fig.width = 12, fig.height = 6----------------------------
+## ----normal-explain1, echo = FALSE, fig.width = 12, fig.height = 6---------------------
 f1 <- function(x) {exp(-x)}
 f2 <- function(x) {exp(-x^2)}
 
@@ -53,7 +53,7 @@ ggplot(data.frame(x = c(0, 5) ), aes(x = x) ) +
     )
 
 
-## ----normal-explain2, echo = FALSE, fig.width = 12, fig.height = 6----------------------------
+## ----normal-explain2, echo = FALSE, fig.width = 12, fig.height = 6---------------------
 ggplot(data.frame(x = c(-5, 5) ), aes(x = x) ) + 
   geom_path(aes(colour = "steelblue"), stat = "function", fun = f2, lwd = 1) +
   labs(x = "x", y = "f(x)") +
@@ -64,7 +64,7 @@ ggplot(data.frame(x = c(-5, 5) ), aes(x = x) ) +
     )
 
 
-## ----normal-explain3, echo = FALSE, fig.width = 12, fig.height = 6----------------------------
+## ----normal-explain3, echo = FALSE, fig.width = 12, fig.height = 6---------------------
 f <- expression(exp(-x^2) )
 f_derivative <- D(f, "x")
 
@@ -81,7 +81,7 @@ ggplot(data.frame(x = c(-5, 5) ), aes(x = x) ) +
     )
 
 
-## ----normal-explain4, echo = FALSE, fig.width = 12, fig.height = 6----------------------------
+## ----normal-explain4, echo = FALSE, fig.width = 12, fig.height = 6---------------------
 f <- expression(exp((-0.5) * x^2) )
 f_derivative <- D(f, "x")
 
@@ -99,7 +99,7 @@ ggplot(data.frame(x = c(-5, 5) ), aes(x = x) ) +
     )
 
 
-## ----normal-explain5, echo = FALSE, fig.width = 12, fig.height = 6----------------------------
+## ----normal-explain5, echo = FALSE, fig.width = 12, fig.height = 6---------------------
 f4 <- function(x) {exp((-0.5) * x^2)}
 
 ggplot(data.frame(x = c(-5, 5) ), aes(x = x) ) + 
@@ -111,7 +111,7 @@ ggplot(data.frame(x = c(-5, 5) ), aes(x = x) ) +
   labs(x = "x", y = "f(x)")
 
 
-## ----normal-explain6, echo = FALSE, fig.width = 12, fig.height = 6----------------------------
+## ----normal-explain6, echo = FALSE, fig.width = 12, fig.height = 6---------------------
 f4 <- function(x) {exp((-0.5) * (x - 3)^2)}
 
 ggplot(data.frame(x = c(-5, 5) ), aes(x = x) ) + 
@@ -123,7 +123,7 @@ ggplot(data.frame(x = c(-5, 5) ), aes(x = x) ) +
   labs(x = "x", y = "f(x)")
 
 
-## ----normal-explain7, echo = FALSE, fig.width = 12, fig.height = 6----------------------------
+## ----normal-explain7, echo = FALSE, fig.width = 12, fig.height = 6---------------------
 ggplot(data.frame(x = c(-5, 5) ), aes(x = x) ) + 
   geom_path(
     aes(colour = "steelblue"),
@@ -133,7 +133,7 @@ ggplot(data.frame(x = c(-5, 5) ), aes(x = x) ) +
   labs(x = "x", y = "f(x)")
 
 
-## ----eval = TRUE, echo = FALSE, fig.align = "center", fig.width = 9, fig.height = 6-----------
+## ----eval = TRUE, echo = FALSE, fig.align = "center", fig.width = 9, fig.height = 6----
 data.frame(x = c(100, 250) ) %>%
   ggplot(aes(x = x) ) +
   stat_function(
@@ -143,7 +143,7 @@ data.frame(x = c(100, 250) ) %>%
   labs(x = expression(mu), y = "Densité de probabilité")
 
 
-## ----eval = TRUE, echo = FALSE, fig.width = 9, fig.height = 6---------------------------------
+## ----eval = TRUE, echo = FALSE, fig.width = 9, fig.height = 6--------------------------
 data.frame(x = c(-10, 60) ) %>%
   ggplot(aes(x = x) ) +
   stat_function(
@@ -153,7 +153,7 @@ data.frame(x = c(-10, 60) ) %>%
   labs(x = expression(sigma), y = "Densité de probabilité")
 
 
-## ----eval = FALSE, echo = TRUE----------------------------------------------------------------
+## ----eval = FALSE, echo = TRUE---------------------------------------------------------
 ## library(ks)
 ## sample_mu <- rnorm(1e4, 178, 20) # prior on mu
 ## sample_sigma <- runif(1e4, 0, 50) # prior on sigma
@@ -167,11 +167,11 @@ data.frame(x = c(-10, 60) ) %>%
 ##     cex.lab = 1.2, family = "Helvetica")
 
 
-## ----prior-plot, echo = FALSE, out.width = "500px"--------------------------------------------
+## ----prior-plot, echo = FALSE, out.width = "500px"-------------------------------------
 knitr::include_graphics("figures/prior.png")
 
 
-## ----eval = TRUE, echo = TRUE, fig.width = 6, fig.height = 6----------------------------------
+## ----eval = TRUE, echo = TRUE, fig.width = 6, fig.height = 6---------------------------
 sample_mu <- rnorm(1000, 178, 20)
 sample_sigma <- runif(1000, 0, 50)
 
@@ -181,14 +181,14 @@ data.frame(x = rnorm(1000, sample_mu, sample_sigma) ) %>%
     labs(x = "Taille (en cm)", y = "Nombre d'échantillons")
 
 
-## ----eval = TRUE, echo = TRUE-----------------------------------------------------------------
+## ----eval = TRUE, echo = TRUE----------------------------------------------------------
 mu_exemple <- 151.23
 sigma_exemple <- 23.42
 
 d2$height[34] # une observation de taille (pour exemple)
 
 
-## ----eval = TRUE, echo = FALSE, fig.width = 6, fig.height = 6---------------------------------
+## ----eval = TRUE, echo = FALSE, fig.width = 6, fig.height = 6--------------------------
 ggplot(data.frame(x = c(50, 250) ), aes(x) ) +
     stat_function(
         fun = dnorm, args = list(mu_exemple, sigma_exemple), lwd = 2) +
@@ -207,11 +207,11 @@ ggplot(data.frame(x = c(50, 250) ), aes(x) ) +
     ylab("Vraisemblance")
 
 
-## ----eval = TRUE, echo = TRUE, fig.align = "center"-------------------------------------------
+## ----eval = TRUE, echo = TRUE, fig.align = "center"------------------------------------
 dnorm(d2$height[34], mu_exemple, sigma_exemple)
 
 
-## ----eval = TRUE, echo = TRUE-----------------------------------------------------------------
+## ----eval = TRUE, echo = TRUE----------------------------------------------------------
 normal_likelihood <- function (x, mu, sigma) {
   
   bell <- exp( (- 1 / (2 * sigma^2) ) * (mu - x)^2 )
@@ -222,11 +222,11 @@ normal_likelihood <- function (x, mu, sigma) {
 }
 
 
-## ----eval = TRUE, echo = TRUE-----------------------------------------------------------------
+## ----eval = TRUE, echo = TRUE----------------------------------------------------------
 normal_likelihood(d2$height[34], mu_exemple, sigma_exemple)
 
 
-## ----grid, eval = TRUE, echo = TRUE-----------------------------------------------------------
+## ----grid, eval = TRUE, echo = TRUE----------------------------------------------------
 # définit une grille de valeurs possibles pour mu et sigma
 mu.list <- seq(from = 140, to = 160, length.out = 200)
 sigma.list <- seq(from = 4, to = 9, length.out = 200)
@@ -256,12 +256,12 @@ post$prod <-
 post$prob <- exp(post$prod - max(post$prod) )
 
 
-## ----samples1, eval = TRUE, echo = TRUE-------------------------------------------------------
+## ----samples1, eval = TRUE, echo = TRUE------------------------------------------------
 # select random 20 rows of the dataframe 
 post %>% slice_sample(n = 20, replace = FALSE)
 
 
-## ----sampling-posterior, eval = TRUE, echo = TRUE---------------------------------------------
+## ----sampling-posterior, eval = TRUE, echo = TRUE--------------------------------------
 sample.rows <- sample(x = 1:nrow(post), size = 1e4, replace = TRUE, prob = post$prob)
 
 
@@ -291,19 +291,19 @@ ggplot(
     labs(x = expression(mu), y = expression(sigma) )
 
 
-## ----eval = TRUE, echo = TRUE, fig.align = "center"-------------------------------------------
+## ----eval = TRUE, echo = TRUE, fig.align = "center"------------------------------------
 BEST::plotPost(
   sample.mu, breaks = 40, xlab = expression(mu)
   )
 
 
-## ----eval = TRUE, echo = TRUE, fig.align = "center"-------------------------------------------
+## ----eval = TRUE, echo = TRUE, fig.align = "center"------------------------------------
 BEST::plotPost(
   sample.sigma, breaks = 40, xlab = expression(sigma)
   )
 
 
-## ----stan, eval = FALSE, echo = TRUE----------------------------------------------------------
+## ----stan, eval = FALSE, echo = TRUE---------------------------------------------------
 ## data {
 ##   int<lower=0> J; // number of schools
 ##   real y[J]; // estimated treatment effects
@@ -328,32 +328,32 @@ BEST::plotPost(
 ##   }
 
 
-## ----eval = FALSE, echo = TRUE----------------------------------------------------------------
+## ----eval = FALSE, echo = TRUE---------------------------------------------------------
 ## model <- brm(y ~ x + (1 | subject) + (1 | item), data = d, family = gaussian() )
 
 
-## ----eval = FALSE, echo = TRUE----------------------------------------------------------------
+## ----eval = FALSE, echo = TRUE---------------------------------------------------------
 ## Reaction ~ Days + (1 + Days | Subject)
 
 
-## ----eval = FALSE, echo = TRUE----------------------------------------------------------------
+## ----eval = FALSE, echo = TRUE---------------------------------------------------------
 ## mvbind(Reaction, Memory) ~ Days + (1 + Days | Subject)
 
 
-## ----eval = FALSE, echo = TRUE----------------------------------------------------------------
+## ----eval = FALSE, echo = TRUE---------------------------------------------------------
 ## mvbind(Reaction, Memory) ~ Days + (1 + Days | Subject)
 ## mvbind(Reaction, Memory) ~ 1 + Days + (1 + Days | Subject)
 
 
-## ----eval = FALSE, echo = TRUE----------------------------------------------------------------
+## ----eval = FALSE, echo = TRUE---------------------------------------------------------
 ## mvbind(Reaction, Memory) ~ 0 + Days + (1 + Days | Subject)
 
 
-## ----eval = FALSE, echo = TRUE----------------------------------------------------------------
+## ----eval = FALSE, echo = TRUE---------------------------------------------------------
 ## brm(Reaction ~ 1 + Days + (1 + Days | Subject), family = lognormal() )
 
 
-## ----fonctions-utiles, eval = FALSE, echo = TRUE----------------------------------------------
+## ----fonctions-utiles, eval = FALSE, echo = TRUE---------------------------------------
 ## # générer le code du modèle en Stan
 ## make_stancode(formula, ...)
 ## stancode(fit)
@@ -379,20 +379,20 @@ BEST::plotPost(
 ## hypothesis(fit, hypothesis, ...)
 
 
-## ----mod1, eval = TRUE, echo = TRUE, results = "hide"-----------------------------------------
+## ----mod1, eval = TRUE, echo = TRUE, results = "hide"----------------------------------
 library(brms)
 mod1 <- brm(height ~ 1, data = d2)
 
 
-## ----summary-mod1, eval = TRUE, echo = TRUE---------------------------------------------------
+## ----summary-mod1, eval = TRUE, echo = TRUE--------------------------------------------
 posterior_summary(mod1, pars = c("^b_", "sigma"), probs = c(0.025, 0.975) )
 
 
-## ----get-prior, eval = TRUE, echo = TRUE------------------------------------------------------
+## ----get-prior, eval = TRUE, echo = TRUE-----------------------------------------------
 get_prior(height ~ 1, data = d2)
 
 
-## ----mod2, eval = TRUE, echo = TRUE, results = "hide"-----------------------------------------
+## ----mod2, eval = TRUE, echo = TRUE, results = "hide"----------------------------------
 priors <- c(
   prior(normal(178, 20), class = Intercept),
   prior(exponential(0.01), class = sigma)
@@ -406,7 +406,7 @@ mod2 <- brm(
   )
 
 
-## ----prior-mod2, echo = FALSE, fig.width = 15, fig.height = 5---------------------------------
+## ----prior-mod2, echo = FALSE, fig.width = 15, fig.height = 5--------------------------
 library(patchwork)
 
 p1 <- data.frame(x = c(100, 250) ) %>%
@@ -428,11 +428,11 @@ p2 <- data.frame(x = c(0, 500) ) %>%
 p1 + p2
 
 
-## ----summary-mod2, eval = TRUE, echo = TRUE---------------------------------------------------
+## ----summary-mod2, eval = TRUE, echo = TRUE--------------------------------------------
 summary(mod2)
 
 
-## ----mod3, eval = TRUE, echo = TRUE, results = "hide"-----------------------------------------
+## ----mod3, eval = TRUE, echo = TRUE, results = "hide"----------------------------------
 priors <- c(
   prior(normal(178, 0.1), class = Intercept),
   prior(exponential(0.01), class = sigma)
@@ -446,7 +446,7 @@ mod3 <- brm(
   )
 
 
-## ----prior-mod3, echo = FALSE, fig.width = 15, fig.height = 5---------------------------------
+## ----prior-mod3, echo = FALSE, fig.width = 15, fig.height = 5--------------------------
 library(patchwork)
 
 p1 <- data.frame(x = c(177, 179) ) %>%
@@ -468,11 +468,11 @@ p2 <- data.frame(x = c(0, 500) ) %>%
 p1 + p2
 
 
-## ----summary-mod3, eval = TRUE, echo = TRUE---------------------------------------------------
+## ----summary-mod3, eval = TRUE, echo = TRUE--------------------------------------------
 summary(mod3)
 
 
-## ----get-density-function, eval = TRUE, echo = FALSE------------------------------------------
+## ----get-density-function, eval = TRUE, echo = FALSE-----------------------------------
 library(viridis)
 library(MASS)
 
@@ -503,7 +503,7 @@ ggplot(post, aes(x = b_Intercept, y = sigma, color = density) ) +
     viridis::scale_color_viridis()
 
 
-## ----eval = TRUE, echo = TRUE-----------------------------------------------------------------
+## ----eval = TRUE, echo = TRUE----------------------------------------------------------
 # gets the first 6 samples
 head(post)
 
@@ -511,7 +511,7 @@ head(post)
 t(sapply(post[, 1:2], quantile, probs = c(0.025, 0.5, 0.975) ) )
 
 
-## ----eval = FALSE, echo = TRUE----------------------------------------------------------------
+## ----eval = FALSE, echo = TRUE---------------------------------------------------------
 ## H.scv <- Hscv(post[, 1:2])
 ## fhat_post <- kde(x = post[, 1:2], H = H.scv, compute.cont = TRUE)
 ## 
@@ -521,7 +521,7 @@ t(sapply(post[, 1:2], quantile, probs = c(0.025, 0.5, 0.975) ) )
 ##   cex.lab = 1.2, family = "Helvetica")
 
 
-## ----posterior-plot, echo = FALSE, out.width = "600px"----------------------------------------
+## ----posterior-plot, echo = FALSE, out.width = "600px"---------------------------------
 knitr::include_graphics("figures/posterior.png")
 
 
@@ -556,7 +556,7 @@ d2 %>%
   geom_point(colour = "white", fill = "black", pch = 21, size = 3, alpha = 0.8)
 
 
-## ----lm-regression, eval = TRUE, echo = TRUE, fig.align = "center"----------------------------
+## ----lm-regression, eval = TRUE, echo = TRUE, fig.align = "center"---------------------
 linear_model <- lm(height ~ weight, data = d2)
 precis(linear_model, prob = 0.95)
 
@@ -571,7 +571,7 @@ d2 %>%
     geom_smooth(method = "lm", se = FALSE, color = "black", lwd = 1)
 
 
-## ----mod4, eval = TRUE, echo = TRUE, results = "hide"-----------------------------------------
+## ----mod4, eval = TRUE, echo = TRUE, results = "hide"----------------------------------
 priors <- c(
   prior(normal(178, 20), class = Intercept),
   prior(normal(0, 10), class = b),
@@ -586,11 +586,11 @@ mod4 <- brm(
   )
 
 
-## ----summary-mod4, eval = TRUE, echo = TRUE---------------------------------------------------
+## ----summary-mod4, eval = TRUE, echo = TRUE--------------------------------------------
 posterior_summary(mod4)
 
 
-## ----mod5, eval = TRUE, echo = TRUE, results = "hide"-----------------------------------------
+## ----mod5, eval = TRUE, echo = TRUE, results = "hide"----------------------------------
 d2$weight.c <- d2$weight - mean(d2$weight)
 
 mod5 <- brm(
@@ -601,7 +601,7 @@ mod5 <- brm(
   )
 
 
-## ----fixef-mod5, eval = TRUE, echo = TRUE-----------------------------------------------------
+## ----fixef-mod5, eval = TRUE, echo = TRUE----------------------------------------------
 fixef(mod5) # retrieves the fixed effects estimates
 
 
@@ -612,7 +612,7 @@ d2 %>%
     geom_abline(intercept = fixef(mod4)[1], slope = fixef(mod4)[2], lwd = 1)
 
 
-## ----fitted-mod4, eval = TRUE, echo = TRUE----------------------------------------------------
+## ----fitted-mod4, eval = TRUE, echo = TRUE---------------------------------------------
 # on crée un vecteur de valeurs possibles pour "weight"
 weight.seq <- data.frame(weight = seq(from = 25, to = 70, by = 1) )
 
@@ -634,7 +634,7 @@ d2 %>%
     )
 
 
-## ----predict-mod4, eval = TRUE, echo = TRUE---------------------------------------------------
+## ----predict-mod4, eval = TRUE, echo = TRUE--------------------------------------------
 # on crée un vecteur de valeurs possibles pour "weight"
 weight.seq <- data.frame(weight = seq(from = 25, to = 70, by = 1) )
 
@@ -675,7 +675,7 @@ d %>%
 c(mean(d$weight.s), sd(d$weight.s) )
 
 
-## ----mod6, eval = TRUE, echo = TRUE, results = "hide"-----------------------------------------
+## ----mod6, eval = TRUE, echo = TRUE, results = "hide"----------------------------------
 priors <- c(
   prior(normal(156, 100), class = Intercept),
   prior(normal(0, 10), class = b),
@@ -691,11 +691,11 @@ mod6 <- brm(
   )
 
 
-## ----summary-mod6, eval = TRUE, echo = TRUE---------------------------------------------------
+## ----summary-mod6, eval = TRUE, echo = TRUE--------------------------------------------
 summary(mod6)
 
 
-## ----predict-mod6, eval = TRUE, echo = TRUE---------------------------------------------------
+## ----predict-mod6, eval = TRUE, echo = TRUE--------------------------------------------
 # on crée un vecteur de valeurs possibles pour "weight"
 weight.seq <- data.frame(weight.s = seq(from = -2.5, to = 2.5, length.out = 50) )
 
@@ -721,7 +721,7 @@ d %>%
     )
 
 
-## ----effsize, eval = TRUE, echo = TRUE--------------------------------------------------------
+## ----effsize, eval = TRUE, echo = TRUE-------------------------------------------------
 post <- posterior_samples(mod4)
 beta <- post$b_weight
 sigma <- post$sigma
@@ -734,7 +734,7 @@ rho <- f1 / (f1 + sigma^2)
 BEST::plotPost(rho, showMode = TRUE, xlab = expression(rho) )
 
 
-## ----summary-lm-effsize, eval = TRUE, echo = TRUE---------------------------------------------
+## ----summary-lm-effsize, eval = TRUE, echo = TRUE--------------------------------------
 summary(lm(height ~ weight, data = d2) )$r.squared
 
 
@@ -743,7 +743,7 @@ bayes_R2(mod4)
 BEST::plotPost(bayes_R2(mod4, summary = FALSE), showMode = TRUE, xlab = expression(rho) )
 
 
-## ----mod7, eval = TRUE, echo = TRUE, results = "hide"-----------------------------------------
+## ----mod7, eval = TRUE, echo = TRUE, results = "hide"----------------------------------
 data(Howell1)
 
 # on garde seulement les individus ayant moins de 18 ans
@@ -763,11 +763,11 @@ mod7 <- brm(
   )
 
 
-## ----summary-mod7, eval = TRUE, echo = TRUE---------------------------------------------------
+## ----summary-mod7, eval = TRUE, echo = TRUE--------------------------------------------
 summary(mod7, prob = 0.89)
 
 
-## ----predict-mod7, eval = TRUE, echo = TRUE---------------------------------------------------
+## ----predict-mod7, eval = TRUE, echo = TRUE--------------------------------------------
 # on crée un vecteur de valeurs possibles pour "weight"
 weight.seq <- data.frame(weight = seq(from = 5, to = 45, length.out = 1e2) )
 
@@ -800,7 +800,7 @@ d %>%
     )
 
 
-## ----mod8, eval = TRUE, echo = TRUE, results = "hide"-----------------------------------------
+## ----mod8, eval = TRUE, echo = TRUE, results = "hide"----------------------------------
 # on considère maintenant tous les individus
 d <- Howell1
 
@@ -813,11 +813,11 @@ mod8 <- brm(
   )
 
 
-## ----summary-mod8, eval = TRUE, echo = TRUE---------------------------------------------------
+## ----summary-mod8, eval = TRUE, echo = TRUE--------------------------------------------
 summary(mod8, prob = 0.89)
 
 
-## ----predict-mod8, eval = TRUE, echo = TRUE---------------------------------------------------
+## ----predict-mod8, eval = TRUE, echo = TRUE--------------------------------------------
 # on crée un vecteur de valeurs possibles pour "weight"
 weight.seq <- data.frame(weight = seq(from = 5, to = 65, length.out = 1e2) )
 
