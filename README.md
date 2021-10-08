@@ -15,7 +15,7 @@ La formation est proposée sous une double étiquette Collège doctoral / MaiMoS
 
 ## Pré-requis
 
-Pour cette formation, vous pourrez utiliser votre propre ordinateur portable sur lequel vous aurez installé `R` (version >= 4.1.1 souhaitée). Nous avons fait le choix d'utiliser l'interface utilisateur RStudio. Pour faciliter nos interactions, nous vous conseillons donc de l'installer : https://www.rstudio.com/products/rstudio/.
+Pour cette formation, vous pourrez utiliser votre propre ordinateur portable sur lequel vous aurez installé `R` (version >= 3.5.3 souhaitée). Nous avons fait le choix d'utiliser l'interface utilisateur RStudio. Pour faciliter nos interactions, nous vous conseillons donc de l’installer : https://www.rstudio.com/products/rstudio/.
 
 Nous utiliserons également `Stan`, à partir de RStudio, grâce au package `rstan`. Vous trouverez toutes les infos pour installer rstan selon votre plateforme ici : https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started.
 
@@ -37,30 +37,30 @@ Télécharger le répertoire entier (en cliquant sur le bouton vert) puis double
 
 ### Option 2
 
-Suivre les liens ci-dessous pour consulter les slides en ligne.
+Suivre les liens ci-dessous pour consulter les slides en ligne. MDP Zoom : IMSB2021.
 
-| Cours | Calendrier | Matériel |
-|-------|:----------:|:--------:|
-| Cours n°01 : Introduction à l'inférence bayésienne | Lundi 4 octobre 10h-12h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours01)> |
-| Cours n°02 : Modèle Beta-Binomial | Lundi 4 octobre 14h-16h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours02)> |
-| Cours n°03 : Introduction à brms, modèle de régression linéaire | Mardi 5 octobre 10h-12h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours03)> |
-| Cours n°04 : Modèle de régression linéaire (suite) | Mardi 5 octobre 14h-16 | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours04)> |
-| Cours n°05 : Markov Chain Monte Carlo | Mercredi 6 octobre 10h-12h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours05)> |
-| Cours n°06 : Modèle linéaire généralisé | Mercredi 6 octobre 14h-16h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours06)> |
-| Cours n°07 : Comparaison de modèles | Jeudi 7 octobre 10h-12h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours07)> |
-| Cours n°08 : Modèles multi-niveaux | Jeudi 7 octobre 14h-16h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours08)> |
-| Cours n°09 : Modèles multi-niveaux généralisés | Vendredi 8 octobre 10h-12h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours09)> |
-| Cours n°10 : Data Hackathon | Vendredi 8 octobre 14h-16h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours10)> |
+| Cours | Calendrier | Matériel | Zoom |
+|-------|:----------:|:--------:|:----:|
+| Cours n°01 : Introduction à l'inférence bayésienne | Lundi 4 octobre 10h-12h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours01)> | <[url]( https://univ-grenoble-alpes-fr.zoom.us/j/94925117839?pwd=S3BmVml6aDJ4UnVsbnNPaCtUamlIUT09)> |
+| Cours n°02 : Modèle Beta-Binomial | Lundi 4 octobre 14h-16h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours02)> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/91404532614?pwd=a2VVbEFvdjlPMHRCdXRQYmZ0b1RLZz09)> |
+| Cours n°03 : Introduction à brms, modèle de régression linéaire | Mardi 5 octobre 10h-12h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours03)> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/94537298700?pwd=cTZzdXl5SExUTWg2bzJhclVQUVJaQT09)> |
+| Cours n°04 : Modèle de régression linéaire (suite) | Mardi 5 octobre 14h-16 | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours04)> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/96314550483?pwd=TmlFenpaaW1uRDNiK293TEVNcTBOUT09)> |
+| Cours n°05 : Markov Chain Monte Carlo | Mercredi 6 octobre 10h-12h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours05)> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/91756867930?pwd=NDlJL01EZSt4QmlUV2lucGpvMDZsUT09)> |
+| Cours n°06 : Modèle linéaire généralisé | Mercredi 6 octobre 14h-16h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours06)> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/91040464729?pwd=VWM5K1RHYmVPSkpMOUlZV09UeTNYQT09)> |
+| Cours n°07 : Comparaison de modèles | Jeudi 7 octobre 10h-12h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours07)> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/92781004931?pwd=cGVCOThVcldwb0Rwb3ZjOWwrd1JSUT09)> |
+| Cours n°08 : Modèles multi-niveaux | Jeudi 7 octobre 14h-16h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours08)> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/95706953868?pwd=WEVBZWdET1VyeUhNOExGQ2RQby9YQT09)> |
+| Cours n°09 : Modèles multi-niveaux généralisés | Vendredi 8 octobre 10h-12h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours09)> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/94357649191?pwd=Q1N6TVJuLzFGVk14a1NNTE0vcGM5UT09)> |
+| Cours n°10 : Data Hackathon | Vendredi 8 octobre 14h-16h | <[slides](https://www.barelysignificant.com/IMSB2021/slides/Cours10)> | <[url](https://univ-grenoble-alpes-fr.zoom.us/j/93755445672?pwd=aUx4ZWdMMlR2UVdMRkNiN0JFZDNqUT09)> |
 
 ## Pour aller plus loin
 
 ### Livres
 
+- Lambert, B. (2018). *A Student's Guide to Bayesian Statistics*. SAGE Publications Ltd.
 - McElreath, R. (2020). *Statistical Rethinking: A Bayesian Course with Examples in R and Stan*. Second Edition. CRC Press.
 - Kurz, S. (2020). *Statistical Rethinking with brms, ggplot2, and the tidyverse*. Available [online](https://bookdown.org/ajkurz/Statistical_Rethinking_recoded/).
 - Kruschke, J. K. (2015). *Doing Bayesian Data Analysis, Second Edition: A Tutorial with R, JAGS, and Stan*. Academic Press / Elsevier.
 - Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., Rubin, D. B. (2013). *Bayesian Data Analysis, third edition*. London: CRC Press.
-- Lambert, B. (2018). *A Student's Guide to Bayesian Statistics*. SAGE Publications Ltd.
 - Nicenboim, B., Schad, D., & Vasishth, S. (2021). An Introduction to Bayesian Data Analysis for Cognitive Science. Available [online](https://vasishth.github.io/bayescogsci/book/).
 
 ### Vidéos
